@@ -68,7 +68,7 @@ const OpeningGate: React.FC<OpeningGateProps> = ({ onOpenComplete }) => {
                             <div className="flex flex-col gap-2">
                                 <h1 className="font-serif text-5xl md:text-7xl text-fuji-cream italic font-light tracking-tight">Hesti</h1>
                                 <span className="font-serif italic text-3xl text-fuji-mist opacity-50">&</span>
-                                <h1 className="font-serif text-5xl md:text-7xl text-fuji-cream italic font-light tracking-tight">Ulul</h1>
+                                <h1 className="font-serif text-5xl md:text-7xl text-fuji-cream italic font-light tracking-tight">Azmi</h1>
                             </div>
                         </motion.div>
 

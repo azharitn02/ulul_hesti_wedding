@@ -206,7 +206,7 @@ function App() {
         <RSVP />
 
         <footer className="bg-fuji-ink text-fuji-cream py-16 text-center border-t border-white/5">
-           <p className="font-serif italic text-2xl mb-4">Hesti & Ulul</p>
+           <p className="font-serif italic text-2xl mb-4">Hesti & Azmi</p>
            <p className="font-sans text-[10px] uppercase tracking-widest opacity-70">&copy; 2026. Terinspirasi oleh Modern Analog.</p>
         </footer>
 

@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
         <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-fuji-cream mb-4 tracking-tight leading-none mix-blend-screen">
           <span className="hero-text-element inline-block">Hesti</span>
           <span className="hero-text-element inline-block font-thin italic mx-4 text-fuji-sageDark">&</span>
-          <span className="hero-text-element inline-block">Ulul</span>
+          <span className="hero-text-element inline-block">Azmi</span>
         </h1>
         
         <p className="hero-text-element font-sans font-light text-sm md:text-lg text-fuji-mist mt-6 mb-8 tracking-[0.2em] uppercase">
