@@ -25,7 +25,7 @@ const CoupleProfile: React.FC = () => {
                         <div className="relative p-4 md:p-6 bg-fuji-charcoal shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] transition-all duration-1000 group-hover:shadow-[0_45px_80px_-20px_rgba(0,0,0,0.7)] group-hover:-translate-y-2 border border-white/5">
                             <div className="aspect-[3/4] w-64 md:w-80 overflow-hidden bg-fuji-mist/20">
                                 <img 
-                                    src="/8.jpeg" 
+                                    src="./8.jpeg" 
                                     alt="Ulul Azmi Alqudus, S.Sos - Mempelai Pria" 
                                     className="w-full h-full object-cover analog-photo hover:scale-105 transition-transform duration-[2000ms] ease-out" 
                                 />
@@ -64,7 +64,7 @@ const CoupleProfile: React.FC = () => {
                         <div className="relative p-4 md:p-6 bg-fuji-charcoal shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] transition-all duration-1000 group-hover:shadow-[0_45px_80px_-20px_rgba(0,0,0,0.7)] group-hover:-translate-y-2 border border-white/5">
                             <div className="aspect-[3/4] w-64 md:w-80 overflow-hidden bg-fuji-mist/20">
                                 <img 
-                                    src="/7.jpeg" 
+                                    src="./7.jpeg" 
                                     alt="Hesti Rahayu Oktaviani - Mempelai Wanita" 
                                     className="w-full h-full object-cover analog-photo hover:scale-105 transition-transform duration-[2000ms] ease-out" 
                                 />

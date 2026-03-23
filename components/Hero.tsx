@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <img 
           ref={imageRef}
-          src="/6.jpeg" 
+          src="./6.jpeg" 
           alt="Atmospheric Background" 
           className="w-full h-[120%] object-cover -mt-[5%] opacity-90 analog-photo"
         />

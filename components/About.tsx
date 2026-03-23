@@ -16,7 +16,7 @@ const About: React.FC = () => {
                 <div className="absolute inset-0 bg-fuji-sage/20 transform translate-x-4 translate-y-4"></div>
                 <div className="relative bg-fuji-charcoal p-2 shadow-xl border border-white/5">
                     <img 
-                        src="/3.jpeg" 
+                        src="./3.jpeg" 
                         alt="Mempelai" 
                         className="w-full h-[400px] md:h-[550px] object-cover analog-photo"
                     />

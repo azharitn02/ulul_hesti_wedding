@@ -3,11 +3,11 @@ import gsap from 'gsap';
 import SectionWrapper from './SectionWrapper';
 
 const images = [
-  "/1.jpeg",
-  "/2.jpeg",
-  "/3.jpeg",
-  "/4.jpeg",
-  "/6.jpeg"
+  "./1.jpeg",
+  "./2.jpeg",
+  "./3.jpeg",
+  "./4.jpeg",
+  "./6.jpeg"
 ];
 
 // Refined Sprocket Hole Pattern (Rounded Rects for 35mm look)

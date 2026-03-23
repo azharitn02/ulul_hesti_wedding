@@ -12,7 +12,7 @@ const FloralDecor: React.FC = () => {
                 transition={{ duration: 2, ease: "easeOut" }}
                 viewport={{ once: true }}
             >
-                <img src="/flower.png" alt="Decoration" className="w-full h-auto" />
+                <img src="./flower.png" alt="Decoration" className="w-full h-auto" />
             </motion.div>
 
             {/* Bottom Right Corner Ornament */}
@@ -23,7 +23,7 @@ const FloralDecor: React.FC = () => {
                 transition={{ duration: 2, ease: "easeOut", delay: 0.3 }}
                 viewport={{ once: true }}
             >
-                <img src="/flower.png" alt="Decoration" className="w-full h-auto" />
+                <img src="./flower.png" alt="Decoration" className="w-full h-auto" />
             </motion.div>
 
             {/* Subtle floating petals / small branches in other parts */}
@@ -34,7 +34,7 @@ const FloralDecor: React.FC = () => {
                 transition={{ duration: 2.5, ease: "easeOut", delay: 0.5 }}
                 viewport={{ once: true }}
             >
-                <img src="/flower.png" alt="Decoration" className="w-full h-auto" />
+                <img src="./flower.png" alt="Decoration" className="w-full h-auto" />
             </motion.div>
         </div>
     );

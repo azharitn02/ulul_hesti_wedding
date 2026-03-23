@@ -95,10 +95,10 @@ const OpeningGate: React.FC<OpeningGateProps> = ({ onOpenComplete }) => {
 
                     {/* Subtle decorative ornaments */}
                     <div className="absolute top-10 left-10 opacity-10 filter invert grayscale scale-50">
-                        <img src="/flower.png" alt="" className="w-64" />
+                        <img src="./flower.png" alt="" className="w-64" />
                     </div>
                     <div className="absolute bottom-10 right-10 opacity-10 filter invert grayscale scale-50 rotate-180">
-                         <img src="/flower.png" alt="" className="w-64" />
+                         <img src="./flower.png" alt="" className="w-64" />
                     </div>
                 </motion.div>
             )}
