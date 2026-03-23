@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
     }
 
     return {
-      base: './',
+      base: '/ulul_hesti_wedding/',
       server: {
         port: 3000,
         host: '0.0.0.0',
