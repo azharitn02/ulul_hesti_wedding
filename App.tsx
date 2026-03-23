@@ -26,18 +26,17 @@ function App() {
   useSmoothScroll();
 
   // Fetch notes from the backend
-  // Only make API calls if VITE_API_URL is explicitly set (GitHub Pages is static-only)
+  // Uses VITE_API_URL if set, otherwise relative path (works on Vercel)
   const API_URL = import.meta.env.VITE_API_URL || '';
-  const hasBackend = !!API_URL;
   
   const fetchNotes = async () => {
-    if (!hasBackend) return; // Skip on static deployments (e.g. GitHub Pages)
     try {
       const response = await fetch(`${API_URL}/api/notes`);
+      if (!response.ok) return;
       const data = await response.json();
       setNotes(data);
     } catch (error) {
-      console.error('Error fetching notes:', error);
+      // API not available (e.g. static GitHub Pages without backend)
     }
   };
 
@@ -66,11 +65,6 @@ function App() {
     e.preventDefault();
     if (!formData.name || !formData.message) return;
 
-    if (!hasBackend) {
-      alert('Fitur ucapan belum tersedia pada versi ini.');
-      return;
-    }
-
     setIsSubmitting(true);
     try {
       const response = await fetch(`${API_URL}/api/notes`, {
@@ -83,9 +77,12 @@ function App() {
         setFormData({ name: '', message: '' });
         fetchNotes();
         alert('Terima kasih atas ucapan hangatnya!');
+      } else {
+        alert('Maaf, terjadi kesalahan. Silakan coba lagi nanti.');
       }
     } catch (error) {
       console.error('Error submitting note:', error);
+      alert('Maaf, fitur ucapan belum tersedia saat ini.');
     } finally {
       setIsSubmitting(false);
     }
