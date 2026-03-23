@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hesti & Ulul | Pernikahan Kami</title>
+    <!-- Fonts: Cormorant Garamond for Headings, Inter for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              fuji: {
+                cream: '#FFF9F2',       /* Warm Paper */
+                sage: '#8FA691',        /* Muted Fuji Green */
+                sageDark: '#6B7B6D',    /* Text Accent Green */
+                dustyPink: '#EBC9B5',   /* Warm Peach/Skin tone */
+                mist: '#B8B4B1',        /* Darkened Fog */
+                charcoal: '#2D2D2D',    /* Stronger Black */
+                stone: '#7D766C',       /* Darker Sand for readability */
+                ink: '#1A1A1A',         /* Deepest Black */
+                white: '#FFFFFF',
+                border: '#E5E2DC'
+              }
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['"Inter"', 'sans-serif'],
+              arabic: ['"Amiri"', 'serif'],
+            },
+            backgroundImage: {
+              'subtle-grain': 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3C/svg%3E")',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth scrolling setup for Lenis */
+      html.lenis, html.lenis body {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+      
+      /* Film Grain Overlay */
+      .film-grain {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.5;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+      }
+      
+      /* Analog Photo Filter */
+      .analog-photo {
+        filter: brightness(1.05) contrast(0.95) saturate(0.85) sepia(0.05);
+      }
+
+      /* Custom Scrollbar - Minimal */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #FFF9F2; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D1CDCA; 
+        border-radius: 3px;
+      }
+      ::selection {
+        background: #8FA691; /* Fuji Sage */
+        color: #FFFFFF;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "gsap/": "https://esm.sh/gsap@^3.14.2/",
+    "gsap": "https://esm.sh/gsap@^3.14.2",
+    "lenis": "https://esm.sh/lenis@^1.3.17"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-fuji-ink text-fuji-cream antialiased overflow-x-hidden font-sans">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
