@@ -12,6 +12,7 @@ import SectionWrapper from './components/SectionWrapper';
 import Particles from './components/Particles';
 import OpeningGate from './components/OpeningGate';
 import Toast from './components/Toast';
+import MusicPlayer from './components/MusicPlayer';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -210,13 +211,15 @@ function App() {
            <p className="font-sans text-[10px] uppercase tracking-widest opacity-70">&copy; 2026. Terinspirasi oleh Modern Analog.</p>
         </footer>
 
-        {/* Custom Toast Notification */}
         <Toast 
           isVisible={toastConfig.isVisible} 
           message={toastConfig.message} 
           type={toastConfig.type} 
           onClose={() => setToastConfig(prev => ({ ...prev, isVisible: false }))} 
         />
+
+        {/* Background Music Player */}
+        <MusicPlayer isOpened={isOpened} />
       </div>
     </main>
   );
