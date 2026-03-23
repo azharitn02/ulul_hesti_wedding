@@ -31,8 +31,9 @@ jobs:
         run: npm install
 
       - name: Build 🏗️
-        run: npx vite build --base=/ulul_hesti_wedding/
+        run: npm run build
         env:
+          DEPLOY_BASE: /ulul_hesti_wedding/
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: Setup Pages 🔧

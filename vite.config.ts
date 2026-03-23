@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
     }
 
     return {
-      base: '/',
+      base: process.env.DEPLOY_BASE || '/',
       server: {
         port: 3000,
         host: '0.0.0.0',
