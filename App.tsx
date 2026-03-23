@@ -11,7 +11,8 @@ import RSVP from './components/RSVP';
 import SectionWrapper from './components/SectionWrapper';
 import Particles from './components/Particles';
 import OpeningGate from './components/OpeningGate';
-import { useState, useEffect } from 'react';
+import Toast from './components/Toast';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -22,6 +23,29 @@ function App() {
   const [formData, setFormData] = useState({ name: '', message: '' });
   const [notes, setNotes] = useState<any[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toastConfig, setToastConfig] = useState<{ isVisible: boolean; message: string; type: 'success' | 'error' }>({
+    isVisible: false,
+    message: '',
+    type: 'success'
+  });
+
+  const timeoutRef = useRef<any>(null);
+
+  const showToast = useCallback((message: string, type: 'success' | 'error' = 'success') => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    
+    setToastConfig({ isVisible: true, message, type });
+    
+    timeoutRef.current = setTimeout(() => {
+      setToastConfig(prev => ({ ...prev, isVisible: false }));
+    }, 5000);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   useSmoothScroll();
 
@@ -76,13 +100,13 @@ function App() {
       if (response.ok) {
         setFormData({ name: '', message: '' });
         fetchNotes();
-        alert('Terima kasih atas ucapan hangatnya!');
+        showToast('Terima kasih atas ucapan hangatnya!', 'success');
       } else {
-        alert('Maaf, terjadi kesalahan. Silakan coba lagi nanti.');
+        showToast('Maaf, terjadi kesalahan. Silakan coba lagi nanti.', 'error');
       }
     } catch (error) {
       console.error('Error submitting note:', error);
-      alert('Maaf, fitur ucapan belum tersedia saat ini.');
+      showToast('Maaf, fitur ucapan belum tersedia saat ini.', 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -185,6 +209,14 @@ function App() {
            <p className="font-serif italic text-2xl mb-4">Hesti & Ulul</p>
            <p className="font-sans text-[10px] uppercase tracking-widest opacity-70">&copy; 2026. Terinspirasi oleh Modern Analog.</p>
         </footer>
+
+        {/* Custom Toast Notification */}
+        <Toast 
+          isVisible={toastConfig.isVisible} 
+          message={toastConfig.message} 
+          type={toastConfig.type} 
+          onClose={() => setToastConfig(prev => ({ ...prev, isVisible: false }))} 
+        />
       </div>
     </main>
   );
