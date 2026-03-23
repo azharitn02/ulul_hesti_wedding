@@ -26,9 +26,12 @@ function App() {
   useSmoothScroll();
 
   // Fetch notes from the backend
+  // Only make API calls if VITE_API_URL is explicitly set (GitHub Pages is static-only)
   const API_URL = import.meta.env.VITE_API_URL || '';
+  const hasBackend = !!API_URL;
   
   const fetchNotes = async () => {
+    if (!hasBackend) return; // Skip on static deployments (e.g. GitHub Pages)
     try {
       const response = await fetch(`${API_URL}/api/notes`);
       const data = await response.json();
@@ -62,6 +65,11 @@ function App() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.message) return;
+
+    if (!hasBackend) {
+      alert('Fitur ucapan belum tersedia pada versi ini.');
+      return;
+    }
 
     setIsSubmitting(true);
     try {
