@@ -261,10 +261,11 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ isOpened }) => {
                   initial={{ opacity: 0, width: 0, x: -10 }}
                   animate={{ opacity: 1, width: 'auto', x: 0 }}
                   exit={{ opacity: 0, width: 0, x: -10 }}
-                  onMouseEnter={() => { if (volumeTimeoutRef.current) clearTimeout(volumeTimeoutRef.current); }}
-                  onMouseLeave={resetVolumeTimeout}
-                  onTouchStart={() => { if (volumeTimeoutRef.current) clearTimeout(volumeTimeoutRef.current); }}
-                  onTouchEnd={resetVolumeTimeout}
+                  onPointerEnter={() => { if (volumeTimeoutRef.current) clearTimeout(volumeTimeoutRef.current); }}
+                  onPointerLeave={resetVolumeTimeout}
+                  onPointerDown={() => { if (volumeTimeoutRef.current) clearTimeout(volumeTimeoutRef.current); }}
+                  onPointerUp={resetVolumeTimeout}
+                  onPointerCancel={resetVolumeTimeout}
                   className="bg-fuji-charcoal/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full flex items-center gap-3 overflow-hidden shadow-xl"
                 >
                   <input
@@ -273,7 +274,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ isOpened }) => {
                     max="100"
                     value={volume}
                     onChange={handleVolumeChange}
-                    className="w-24 h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-fuji-sage"
+                    className="w-24 h-1 bg-white/10 rounded-lg appearance-none cursor-pointer accent-fuji-sage touch-none group-hover:opacity-100"
                   />
                   <span className="font-sans text-[10px] text-fuji-cream/60 w-6 tabular-nums">
                     {volume}%
