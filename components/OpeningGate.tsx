@@ -31,6 +31,8 @@ const OpeningGate: React.FC<OpeningGateProps> = ({ onOpenComplete }) => {
 
     const handleOpen = () => {
         setIsOpen(true);
+        // Trigger music player immediately for mobile autoplay requirements
+        window.dispatchEvent(new Event('bukaUndangan'));
         // Delay callback until animation is nearing completion
         setTimeout(onOpenComplete, 800);
     };

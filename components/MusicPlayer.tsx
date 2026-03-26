@@ -125,12 +125,22 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ isOpened }) => {
     }
   }, []);
 
-  // When gate opens AND user has interacted (tap on "Buka Undangan"), create player
+  // Create player immediately once API is ready, regardless of isOpened
   useEffect(() => {
-    if (isOpened && isApiReady && hasUserInteracted && !playerRef.current) {
+    if (isApiReady && !playerRef.current) {
       createPlayer();
     }
-  }, [isOpened, isApiReady, hasUserInteracted, createPlayer]);
+  }, [isApiReady, createPlayer]);
+
+  // Listen for the specific 'Buka Undangan' click event to trigger synchronous playback
+  useEffect(() => {
+    const handleBukaUndangan = () => {
+      // Must execute synchronously here to satisfy mobile Chrome/Safari user-gesture limits
+      attemptPlay();
+    };
+    window.addEventListener('bukaUndangan', handleBukaUndangan);
+    return () => window.removeEventListener('bukaUndangan', handleBukaUndangan);
+  }, [attemptPlay]);
 
   // If player was created before user gesture, retry play after interaction
   useEffect(() => {
