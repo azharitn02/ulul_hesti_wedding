@@ -12,51 +12,23 @@ const images = [
 // Refined Sprocket Hole Pattern (Rounded Rects for 35mm look)
 const sprocketPattern = "data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='8' width='20' height='24' rx='4' fill='%23FFF9F2'/%3E%3C/svg%3E";
 
-// Lazy-loaded image component with intersection observer
-const LazyImage: React.FC<{ src: string; alt: string; index: number }> = React.memo(({ src, alt, index }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const imgRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = imgRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px' } // Start loading 200px before visible
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
+// Simple Image Component optimized for mobile scrolling
+const GalleryImage: React.FC<{ src: string; alt: string; index: number }> = React.memo(({ src, alt, index }) => {
   return (
-    <div ref={imgRef} className="relative group flex flex-col items-center">
+    <div className="relative group flex flex-col items-center">
       {/* Photo Frame (Negative Style) */}
       <div className="relative p-1 bg-black shadow-lg">
         <div className="relative w-[300px] md:w-[380px] aspect-[2/3] overflow-hidden bg-[#0a0a0a]">
           
-          {isInView && (
-            <img 
-              src={src} 
-              alt={alt} 
-              loading="lazy"
-              decoding="async"
-              onLoad={() => setIsLoaded(true)}
-              className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-95' : 'opacity-0'}`}
-              style={{
-                filter: 'brightness(1.1) contrast(0.9) saturate(0.8) sepia(0.05)',
-                contentVisibility: 'auto',
-              }}
-            />
-          )}
+          <img 
+            src={src} 
+            alt={alt} 
+            className="w-full h-full object-cover opacity-95"
+            // No strict lazy loading or intersection observers here 
+            // because they conflict with GSAP horizontal scrub on mobile Chrome
+          />
 
-          {/* Combined film overlay — single div with CSS instead of 4+ separate divs */}
+          {/* Combined film overlay — single div with CSS */}
           <div 
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -67,7 +39,7 @@ const LazyImage: React.FC<{ src: string; alt: string; index: number }> = React.m
             }}
           />
           
-          {/* Single color tint overlay instead of two separate ones */}
+          {/* Single color tint overlay instead of heavy CSS filter */}
           <div 
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -85,7 +57,7 @@ const LazyImage: React.FC<{ src: string; alt: string; index: number }> = React.m
             }}
           />
 
-          {/* Film border effect — simplified CSS box-shadow instead of expensive SVG filter */}
+          {/* Film border effect — simplified CSS box-shadow */}
           <div 
             className="absolute inset-0 pointer-events-none z-40"
             style={{
@@ -110,7 +82,7 @@ const LazyImage: React.FC<{ src: string; alt: string; index: number }> = React.m
   );
 });
 
-LazyImage.displayName = 'LazyImage';
+GalleryImage.displayName = 'GalleryImage';
 
 // Edge markings rendered once (reduced count: 8 instead of 15)
 const EdgeMarkings = React.memo(() => (
@@ -276,7 +248,7 @@ const Gallery: React.FC = () => {
                 </div>
 
                 {images.map((src, index) => (
-                    <LazyImage key={index} src={src} alt={`Bingkai ${index}`} index={index} />
+                    <GalleryImage key={index} src={src} alt={`Bingkai ${index}`} index={index} />
                 ))}
             
                 {/* End of Roll */}
