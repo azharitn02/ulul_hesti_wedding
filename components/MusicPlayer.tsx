@@ -62,11 +62,11 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ isOpened }) => {
       playerRef.current = new (window as any).YT.Player('youtube-player', {
         height: '0',
         width: '0',
-        videoId: 'FKijnRja8is',
+        videoId: 'Ya2fo8taav4',
         playerVars: {
           autoplay: 0, // Don't autoplay — we'll call playVideo() manually after user gesture
           loop: 1,
-          playlist: 'FKijnRja8is',
+          playlist: 'Ya2fo8taav4',
           controls: 0,
           showinfo: 0,
           modestbranding: 1,
