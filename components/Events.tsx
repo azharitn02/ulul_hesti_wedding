@@ -22,12 +22,13 @@ const Events: React.FC = () => {
                         <HeartHandshake className="w-6 h-6 text-fuji-cream" strokeWidth={1.5} />
                     </div>
                     <h3 className="font-serif text-3xl text-fuji-cream mb-1">Akad Nikah</h3>
-                    <p className="font-sans text-xs tracking-widest text-fuji-sage mb-6 uppercase font-bold">08.00 WIB</p>
+                    <p className="font-sans text-xs tracking-widest text-fuji-sage mb-6 uppercase font-bold">09.00 WIB</p>
                     <p className="font-sans font-light text-fuji-cream/70 mb-8 leading-relaxed">
+                        Gedung Wisma Guna Baleendah<br/>
                         Jl. Adipati agung No.38<br/>
-                        Baleendah, Kec. Baleendah, Kabupaten Bandung, Jawa Barat 40375
+                        Kec. Baleendah, Kabupaten Bandung, Jawa Barat 40375
                     </p>
-                    <a href="https://maps.app.goo.gl/XYwcPFKSnhtCY8n1A">
+                    <a href="https://maps.app.goo.gl/oMvYqhr8xHsMdLN57">
                         Lihat Lokasi
                     </a>
                 </div>
@@ -44,10 +45,11 @@ const Events: React.FC = () => {
                     <h3 className="font-serif text-3xl text-fuji-cream mb-1">Resepsi</h3>
                     <p className="font-sans text-xs tracking-widest text-fuji-sage mb-6 uppercase font-bold">11.00 WIB - Selesai</p>
                     <p className="font-sans font-light text-fuji-cream/70 mb-8 leading-relaxed">
+                        Gedung Wisma Guna Baleendah<br/>
                         Jl. Adipati agung No.38<br/>
-                        Baleendah, Kec. Baleendah, Kabupaten Bandung, Jawa Barat 40375
+                        Kec. Baleendah, Kabupaten Bandung, Jawa Barat 40375
                     </p>
-                    <a href="https://maps.app.goo.gl/XYwcPFKSnhtCY8n1A">
+                    <a href="https://maps.app.goo.gl/oMvYqhr8xHsMdLN57">
                         Lihat Lokasi
                     </a>
                 </div>
