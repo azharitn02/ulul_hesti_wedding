@@ -7,6 +7,7 @@ import About from './components/About';
 import Countdown from './components/Countdown';
 import Events from './components/Events';
 import Gallery from './components/Gallery';
+import WeddingGift from './components/WeddingGift';
 import RSVP from './components/RSVP';
 import SectionWrapper from './components/SectionWrapper';
 import Particles from './components/Particles';
@@ -148,6 +149,8 @@ function App() {
         <Events />
         
         <Gallery />
+        
+        <WeddingGift />
         
         {/* Prayers / Wishes Section */}
         <SectionWrapper className="bg-fuji-ink py-24 text-center">
